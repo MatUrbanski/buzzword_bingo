@@ -1,6 +1,6 @@
 defmodule Bingo.Player do
   @enforce_keys [:name, :color]
-  defstruct     [:name, :color]
+  defstruct [:name, :color]
 
   alias Bingo.Player
 

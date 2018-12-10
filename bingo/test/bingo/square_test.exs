@@ -17,7 +17,7 @@ defmodule Bingo.SquareTest do
   describe "from_buzzword/1" do
     test "creates a square from a buzzword" do
       buzzword = %{phrase: "A", points: 10}
-      square   = Square.from_buzzword(buzzword)
+      square = Square.from_buzzword(buzzword)
 
       assert square.phrase == "A"
       assert square.points == 10
