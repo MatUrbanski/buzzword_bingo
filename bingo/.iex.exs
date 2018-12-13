@@ -1,4 +1,1 @@
-alias Bingo.Player
-alias Bingo.Square
-alias Bingo.Buzzwords
-alias Bingo.BingoChecker
+  alias Bingo.{Player, Square, Buzzwords, Game, Square, BingoChecker}
