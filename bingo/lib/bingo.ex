@@ -4,7 +4,8 @@ defmodule Bingo do
   def start(_type, _args) do
     children = [
       {Registry, keys: :unique, name: Bingo.GameRegistry},
-      Bingo.BuzzwordCache
+      Bingo.BuzzwordCache,
+      Bingo.GameSupervisor
     ]
 
     :ets.new(:games_table, [:public, :named_table])
