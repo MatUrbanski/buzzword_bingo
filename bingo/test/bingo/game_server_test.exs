@@ -52,7 +52,7 @@ defmodule Bingo.GameServerTest do
 
       _summary = GameServer.mark(game_name, square_1.phrase, player)
       _summary = GameServer.mark(game_name, square_2.phrase, player)
-      summary  = GameServer.mark(game_name, square_3.phrase, player)
+      summary = GameServer.mark(game_name, square_3.phrase, player)
 
       assert Map.get(summary.scores, player.name)
       assert summary.winner == player
@@ -61,8 +61,7 @@ defmodule Bingo.GameServerTest do
     test "stores initial state in ETS when started" do
       game_name = generate_game_name()
 
-      {:ok, _pid} =
-        GameServer.start_link(game_name, 3)
+      {:ok, _pid} = GameServer.start_link(game_name, 3)
 
       assert [{^game_name, game}] = :ets.lookup(:games_table, game_name)
 
@@ -72,7 +71,6 @@ defmodule Bingo.GameServerTest do
     end
 
     test "gets its initial state from ETS if previously stored" do
-
       game_name = generate_game_name()
 
       player = Player.new("Nicole", "green")
@@ -83,8 +81,7 @@ defmodule Bingo.GameServerTest do
 
       :ets.insert(:games_table, {game_name, game})
 
-      {:ok, _pid} =
-        GameServer.start_link(game_name, 3)
+      {:ok, _pid} = GameServer.start_link(game_name, 3)
 
       summary = GameServer.summary(game_name)
 
@@ -96,8 +93,7 @@ defmodule Bingo.GameServerTest do
     test "updates state in ETS when square is marked" do
       game_name = generate_game_name()
 
-      {:ok, _pid} =
-        GameServer.start_link(game_name, 3)
+      {:ok, _pid} = GameServer.start_link(game_name, 3)
 
       summary = GameServer.summary(game_name)
 

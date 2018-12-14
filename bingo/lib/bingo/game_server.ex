@@ -15,9 +15,11 @@ defmodule Bingo.GameServer do
   Spawns a new game server process registered under the given `game_name`.
   """
   def start_link(game_name, size) do
-    GenServer.start_link(__MODULE__,
-                         {game_name, size},
-                         name: via_tuple(game_name))
+    GenServer.start_link(
+      __MODULE__,
+      {game_name, size},
+      name: via_tuple(game_name)
+    )
   end
 
   def summary(game_name) do
@@ -59,7 +61,7 @@ defmodule Bingo.GameServer do
 
         [{^game_name, game}] ->
           game
-    end
+      end
 
     Logger.info("Spawned game server process named '#{game_name}'.")
 
@@ -100,6 +102,6 @@ defmodule Bingo.GameServer do
   end
 
   defp my_game_name do
-    Registry.keys(Bingo.GameRegistry, self()) |> List.first
+    Registry.keys(Bingo.GameRegistry, self()) |> List.first()
   end
 end

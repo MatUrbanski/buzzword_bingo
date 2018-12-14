@@ -24,7 +24,7 @@ defmodule GameTest do
     test "creates a game with specified size" do
       game = Game.new(3)
 
-      assert_game_size game, 3
+      assert_game_size(game, 3)
     end
   end
 
@@ -33,7 +33,7 @@ defmodule GameTest do
       buzzwords = Buzzwords.read_buzzwords()
       game = Game.new(buzzwords, 3)
 
-      assert_game_size game, 3
+      assert_game_size(game, 3)
     end
   end
 
@@ -85,8 +85,7 @@ defmodule GameTest do
     end
 
     test "no winner when column is fully marked by different players",
-      context do
-
+         context do
       game =
         new_game(context.squares)
         |> Game.mark("A", context.player_1)
@@ -97,8 +96,7 @@ defmodule GameTest do
     end
 
     test "no winner when left diagonal is fully marked by different players",
-      context do
-
+         context do
       game =
         new_game(context.squares)
         |> Game.mark("A", context.player_1)
@@ -109,8 +107,7 @@ defmodule GameTest do
     end
 
     test "no winner when right diagonal is fully marked by different players",
-      context do
-
+         context do
       game =
         new_game(context.squares)
         |> Game.mark("C", context.player_1)
@@ -121,8 +118,7 @@ defmodule GameTest do
     end
 
     test "winner when row is fully marked by same player",
-      context do
-
+         context do
       game =
         new_game(context.squares)
         |> Game.mark("A", context.player_1)
@@ -133,8 +129,7 @@ defmodule GameTest do
     end
 
     test "winner when column is fully marked by same player",
-      context do
-
+         context do
       game =
         new_game(context.squares)
         |> Game.mark("A", context.player_1)
@@ -145,8 +140,7 @@ defmodule GameTest do
     end
 
     test "winner when left diagonal is fully marked by same player",
-      context do
-
+         context do
       game =
         new_game(context.squares)
         |> Game.mark("A", context.player_1)
@@ -157,8 +151,7 @@ defmodule GameTest do
     end
 
     test "winner when right diagonal is fully marked by same player",
-      context do
-
+         context do
       game =
         new_game(context.squares)
         |> Game.mark("C", context.player_1)

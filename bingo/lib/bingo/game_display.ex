@@ -40,7 +40,7 @@ defmodule Bingo.GameDisplay do
 
   defp color_of_square(square) do
     case square.marked_by do
-      nil    -> ANSI.normal()
+      nil -> ANSI.normal()
       player -> String.to_atom(player.color)
     end
   end
@@ -76,7 +76,7 @@ defmodule Bingo.GameDisplay do
 
     status =
       case game.winner do
-        nil    -> " 🙁  No Bingo (yet) "
+        nil -> " 🙁  No Bingo (yet) "
         player -> " ⭐️  BINGO! #{player.name} wins!"
       end
 
