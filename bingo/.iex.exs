@@ -1,1 +1,1 @@
-  alias Bingo.{Player, Square, Buzzwords, Game, Square, BingoChecker, GameDisplay, GameServer, BuzzwordCache}
+alias Bingo.{Player, Square, Buzzwords, Game, Square, BingoChecker, GameDisplay, GameServer, BuzzwordCache, GameServer}
