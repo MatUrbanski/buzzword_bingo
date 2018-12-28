@@ -16,11 +16,12 @@ defmodule BingoHallWeb.Router do
   scope "/", BingoHallWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-  end
+    get "/", GameController, :new
 
-  # Other scopes may use custom stacks.
-  # scope "/api", BingoHallWeb do
-  #   pipe_through :api
-  # end
+    resources "/games", GameController,
+                        only: [:new, :create, :show]
+
+    resources "/sessions", SessionController,
+                           only: [:new, :create, :delete],                      singleton: true
+  end
 end
