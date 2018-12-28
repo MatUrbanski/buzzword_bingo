@@ -5,7 +5,7 @@ defmodule BingoHall.HaikuNameTest do
 
   describe "generate/1" do
     test "Generates a unique, URL-friendly name" do
-      name = HaikuName.generate
+      name = HaikuName.generate()
 
       assert String.length(name) > 0
     end

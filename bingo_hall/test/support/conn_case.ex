@@ -23,6 +23,11 @@ defmodule BingoHallWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint BingoHallWeb.Endpoint
+
+      def put_player_in_session(conn, name, color \\ "blue") do
+        params = %{"name" => name, "color" => color}
+        post conn, Routes.session_path(conn, :create), %{"player" => params}
+      end
     end
   end
 
