@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>BingoHall · Phoenix Framework</title>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Bingo Hall</title>
+    <link href="//fonts.googleapis.com/css?family=Raleway:300,400,600,800" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>">
   </head>
+
   <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+    <div class="container">
+      <header>
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li>
+              <%= link "Switch Player",
+                       to: Routes.session_path(@conn, :delete),
+                       method: :delete %>
+            </li>
           </ul>
         </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
-    <main role="main" class="container">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="letters">
+              <span class="letter inverse">B</span>
+              <span class="letter">U</span>
+              <span class="letter">Z</span>
+              <span class="letter">Z</span>
+              <span class="letter">W</span>
+              <span class="letter">O</span>
+              <span class="letter">R</span>
+              <span class="letter">D</span>
+              <span class="letter inverse">B</span>
+              <span class="letter">I</span>
+              <span class="letter">N</span>
+              <span class="letter">G</span>
+              <span class="letter">O</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
-    </main>
-    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+
+      <footer>
+        built with
+        <a href="http://elixir-lang.org/" target="_blank">Elixir</a> +
+        <a href="http://www.phoenixframework.org/" target="_blank">Phoenix</a> +
+        <a href="https://vuejs.org/" target="_blank">Vue</a>
+      </footer>
+
+    </div> <!-- /container -->
+    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
