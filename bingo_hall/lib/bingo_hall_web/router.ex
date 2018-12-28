@@ -18,10 +18,7 @@ defmodule BingoHallWeb.Router do
 
     get "/", GameController, :new
 
-    resources "/games", GameController,
-                        only: [:new, :create, :show]
-
-    resources "/sessions", SessionController,
-                           only: [:new, :create, :delete],                      singleton: true
+    resources "/games", GameController, only: [:new, :create, :show]
+    resources "/sessions", SessionController, only: [:new, :create, :delete], singleton: true
   end
 end
