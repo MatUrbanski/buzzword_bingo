@@ -1,7 +1,7 @@
 defmodule Bingo.Game do
   @enforce_keys [:squares]
+  @derive Jason.Encoder
   defstruct squares: nil, scores: %{}, winner: nil
-
   alias Bingo.{Buzzwords, Game, Square, BingoChecker}
 
   @doc """

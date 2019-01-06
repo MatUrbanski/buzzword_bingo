@@ -1,19 +1,29 @@
 # BingoHall
 
-To start your Phoenix server:
+## Installation
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+1. Install Elixir dependencies:
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+    ```sh
+    mix deps.get
+    ```
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+2. Install Node.js dependencies:
 
-## Learn more
+    ```sh
+    cd assets && npm install
+    ```
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+3. Make sure all the tests pass:
+
+    ```sh
+    mix test
+    ```
+
+4. Fire up the Phoenix endpoint:
+
+    ```sh
+    mix phx.server
+    ```
+
+5. Visit [`localhost:4000`](http://localhost:4000) to play the game!

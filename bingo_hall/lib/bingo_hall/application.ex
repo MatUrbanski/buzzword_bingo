@@ -9,9 +9,10 @@ defmodule BingoHall.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      BingoHallWeb.Endpoint
+      BingoHallWeb.Endpoint,
       # Starts a worker by calling: BingoHall.Worker.start_link(arg)
       # {BingoHall.Worker, arg},
+      BingoHallWeb.Presence
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

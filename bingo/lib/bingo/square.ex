@@ -1,5 +1,6 @@
 defmodule Bingo.Square do
   @enforce_keys [:phrase, :points]
+  @derive Jason.Encoder
   defstruct [:phrase, :points, :marked_by]
 
   alias Bingo.Square

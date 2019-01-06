@@ -65,3 +65,5 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :bingo_hall, BingoHallWeb.Endpoint, ws_url: "ws://localhost:4000/socket/websocket"

@@ -1,5 +1,6 @@
 defmodule Bingo.Player do
   @enforce_keys [:name, :color]
+  @derive Jason.Encoder
   defstruct [:name, :color]
 
   alias Bingo.Player

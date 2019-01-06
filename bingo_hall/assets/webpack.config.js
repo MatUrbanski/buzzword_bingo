@@ -13,29 +13,34 @@ module.exports = (env, options) => ({
     ]
   },
   entry: {
-      './js/app.js': ['./js/app.js'].concat(glob.sync('./vendor/**/*.js'))
+    "./js/app.js": ["./js/app.js"].concat(glob.sync("./vendor/**/*.js"))
   },
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, '../priv/static/js')
+    filename: "app.js",
+    path: path.resolve(__dirname, "../priv/static/js")
+  },
+  resolve: {
+    alias: {
+      vue$: "vue/dist/vue.common.js"
+    }
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       }
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '../css/app.css' }),
-    new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
+    new MiniCssExtractPlugin({ filename: "../css/app.css" }),
+    new CopyWebpackPlugin([{ from: "static/", to: "../" }])
   ]
 });
